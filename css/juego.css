@@ -13,6 +13,7 @@ ul {
 li {
   padding: 5px 0;
   animation: fadein 5s;
+  font-size: 14px;
 }
 li::before {
   content: "• ";
@@ -21,7 +22,7 @@ li::before {
 
 .col-40 h1 {
   font-size: 20px;
-  color: #E84A5F;
+  color: #FFF;
 }
 
 .col-40, .col-60 {
@@ -56,4 +57,47 @@ li::before {
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+#juego {
+  width: 600px;
+  height: 600px;
+}
+
+.cuadro {
+  width: 33.33%;
+  float: left;
+}
+
+.cuadro img {
+  width: 100%;
+  display: block; /* Para eliminar el margin-bottom que me estaba agregando */
+  border: solid 1px #6ab2e4;
+  box-sizing: border-box;
+}
+
+#objetivo img {
+  width: 60%;
+  display: block;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#titulo {
+  background-color: #e84a5f;
+}
+
+h2 {
+  font-size: 17px;
+  color: #e84a5f;
+}
+
+#footer {
+  background-color: #e84a5f;
+    color: #fff;
+    min-width: 100%;
+    position: fixed;
+    bottom: 0%;
+    left: 0px;
 }
