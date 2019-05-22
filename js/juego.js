@@ -1,5 +1,5 @@
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = [];
+var instrucciones = ['Utilizar las flechas para mover las piezas','Ordenar las piezas hasta alcanzar la imagen objetivo'];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -21,11 +21,32 @@ Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-ins
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
-    //COMPLETAR
+    for (var i=instrucciones.length-1; i>=0; i--) {
+      mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
+    }
 }
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
+function guardarMovimiento(direccion){
+  movimientos.push(direccion);
+  actualizarUltimoMovimiento(direccion);
+}
+
+
+
+
+
+/*
+------------------------------ POR HACER -----------------------------
+Por ejemplo: ¿cómo sería mostrar los últimos 5 movimientos? ¿O mostrar al final del juego todos los movimientos realizados?
+
+*/
+
+
+
+
+
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
