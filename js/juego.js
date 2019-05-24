@@ -48,10 +48,33 @@ Por ejemplo: ¿cómo sería mostrar los últimos 5 movimientos? ¿O mostrar al f
 
 
 
+
+
+
+
+
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
-    //COMPLETAR
+  for (var i=0; i<grilla.length; i++) {
+    for (var j=0; j<grilla[i].length; j++) {
+
+      if( grilla[i].indexOf(grilla[i][j]) == grilla[i].length-1 ) {
+        if( grilla[i+1] != undefined ) {
+          if( grilla[i][j]+1 != grilla[i+1][0] ) {
+            return false
+          }
+        }
+      }
+      else {
+        if( grilla[i][j]+1 != grilla[i][j+1] ) {
+          return false
+        }
+      }
+      
+    }
+  }
+  return true;
 }
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
