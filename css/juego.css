@@ -101,3 +101,25 @@ h2 {
     bottom: 0%;
     left: 0px;
 }
+
+#cartel {
+  background-color: #fff;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  border: 1px solid #E84A5F;
+  border-radius: 50%;
+  position: fixed;
+  top: 5%;
+  left: 35%;
+
+
+  display: none;
+}
+
+#cartel p {
+  position: relative;
+  top: 40%;
+  font-size: 40px;
+  color: #E84A5F;
+}

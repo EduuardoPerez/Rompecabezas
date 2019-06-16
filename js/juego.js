@@ -36,7 +36,6 @@ function guardarMovimiento(direccion){
 
 
 
-
 /*
 ------------------------------ POR HACER -----------------------------
 Por ejemplo: ¿cómo sería mostrar los últimos 5 movimientos? ¿O mostrar al final del juego todos los movimientos realizados?
