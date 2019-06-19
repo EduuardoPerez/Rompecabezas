@@ -123,3 +123,11 @@ h2 {
   font-size: 40px;
   color: #E84A5F;
 }
+
+#ultimos5-mov li{
+  display: inline-block;
+}
+
+#ultimos5-mov {
+  list-style: none;
+}

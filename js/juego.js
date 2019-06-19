@@ -33,15 +33,45 @@ function guardarMovimiento(direccion){
   actualizarUltimoMovimiento(direccion);
 }
 
+/* Esta funcion va a mostrar los ultimos 5 movimientos realizados */
+function ultimos5Movimientos(){
+  var ul = document.getElementById('lista-ult5-mov');
+  var li = document.createElement("li");
 
-
-
-
-
+  for (var i = movimientos.length-6; i<movimientos.length; i++) {
+    if (movimientos[i] === codigosDireccion.ABAJO) {
+      console.log('En el if ↓')
+      li.textContent = '↓';
+      ul.appendChild(li);
+    }
+    else if (movimientos[i] === codigosDireccion.ARRIBA) {
+      console.log('En el if ↑')
+      li.textContent = '↑';
+      ul.appendChild(li);
+    }
+    else if (movimientos[i] === codigosDireccion.DERECHA) {
+      console.log('En el if →')
+      li.textContent = '→';
+      ul.appendChild(li);
+    }
+    else if (movimientos[i] === codigosDireccion.IZQUIERDA) {
+      console.log('En el if ←')
+      li.textContent = '←';
+      ul.appendChild(li);
+    }
+  }
+}
 
 /*
 ------------------------------ POR HACER -----------------------------
 Por ejemplo: ¿cómo sería mostrar los últimos 5 movimientos? ¿O mostrar al final del juego todos los movimientos realizados?
+
+function mostrarInstruccionEnLista(instruccion, idLista) {
+  var ul = document.getElementById(idLista);
+  var li = document.createElement("li");
+  li.textContent = instruccion;
+  ul.appendChild(li);
+}
 
 */
 
@@ -277,6 +307,7 @@ function capturarTeclas() {
       evento.which === codigosDireccion.IZQUIERDA) {
 
       moverEnDireccion(evento.which);
+      ultimos5Movimientos();
 
         var gano = chequearSiGano();
         if (gano) {
