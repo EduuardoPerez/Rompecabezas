@@ -21,9 +21,9 @@ Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-ins
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
-    for (var i=instrucciones.length-1; i>=0; i--) {
-      mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
-    }
+  for (var i=instrucciones.length-1; i>=0; i--) {
+    mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
+  }
 }
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
@@ -32,6 +32,9 @@ function guardarMovimiento(direccion){
   movimientos.push(direccion);
   actualizarUltimoMovimiento(direccion);
 }
+
+
+
 
 
 
@@ -78,7 +81,10 @@ function chequearSiGano() {
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
-    //COMPLETAR
+  var cartel = document.getElementById('cartel');
+  if(chequearSiGano()){
+    cartel.style.display='unset';
+  }
 }
 
 /* Función que intercambia dos posiciones en la grilla.
@@ -92,18 +98,25 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-    //COMPLETAR
+  var value1 = grilla[filaPos1][columnaPos1];
+  var value2 = grilla[filaPos2][columnaPos2];  
+  grilla[filaPos1][columnaPos1] = value2;
+  grilla[filaPos2][columnaPos2] = value1;
 }
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-    //COMPLETAR
+  filaVacia = nuevaFila;
+  columnaVacia = nuevaColumna;
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-    //COMPLETAR
+  if(fila>=0 && fila<=2 && columna>=0 && columna<=2){
+    return true;
+  }
+  return false;
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
@@ -114,24 +127,26 @@ function moverEnDireccion(direccion) {
 
   // Mueve pieza hacia la abajo, reemplazandola con la blanca
   if (direccion === codigosDireccion.ABAJO) {
-    nuevaFilaPiezaVacia = filaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia + 1;
     nuevaColumnaPiezaVacia = columnaVacia;
   }
     
   // Mueve pieza hacia arriba, reemplazandola con la blanca
   else if (direccion === codigosDireccion.ARRIBA) {
-    nuevaFilaPiezaVacia = filaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia - 1;
     nuevaColumnaPiezaVacia = columnaVacia;
   }
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    //COMPLETAR
+    nuevaColumnaPiezaVacia = columnaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia;
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-    // COMPLETAR
+    nuevaColumnaPiezaVacia = columnaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia;
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
@@ -139,11 +154,9 @@ function moverEnDireccion(direccion) {
   las funciones posicionValida, intercambiarPosicionesGrilla y actualizarPosicionVacia */
 
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
-        intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-        actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
-  //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-
+      intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
+      actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
+      guardarMovimiento(direccion);
     }
 }
 
