@@ -126,6 +126,12 @@ h2 {
 
 #ultimos5-mov li{
   display: inline-block;
+  margin: 0 7%;
+  animation: unset;
+}
+
+#ultimos5-mov li::before{
+  content: unset;
 }
 
 #ultimos5-mov {

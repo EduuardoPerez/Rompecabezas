@@ -40,24 +40,48 @@ function ultimos5Movimientos(){
 
   for (var i = movimientos.length-6; i<movimientos.length; i++) {
     if (movimientos[i] === codigosDireccion.ABAJO) {
-      console.log('En el if ↓')
-      li.textContent = '↓';
-      ul.appendChild(li);
+      if(ul.childNodes.length>5){
+        ul.removeChild(ul.childNodes[0]);
+        li.textContent = '↓';
+        ul.appendChild(li);
+      }
+      else{
+        li.textContent = '↓';
+        ul.appendChild(li);
+      }
     }
     else if (movimientos[i] === codigosDireccion.ARRIBA) {
-      console.log('En el if ↑')
-      li.textContent = '↑';
-      ul.appendChild(li);
+      if(ul.childNodes.length>5){
+        ul.removeChild(ul.childNodes[0]);
+        li.textContent = '↑';
+        ul.appendChild(li);
+      }
+      else{
+        li.textContent = '↑';
+        ul.appendChild(li);
+      }
     }
     else if (movimientos[i] === codigosDireccion.DERECHA) {
-      console.log('En el if →')
-      li.textContent = '→';
-      ul.appendChild(li);
+      if(ul.childNodes.length>5){
+        ul.removeChild(ul.childNodes[0]);
+        li.textContent = '→';
+        ul.appendChild(li);
+      }
+      else{
+        li.textContent = '→';
+        ul.appendChild(li);
+      }
     }
     else if (movimientos[i] === codigosDireccion.IZQUIERDA) {
-      console.log('En el if ←')
-      li.textContent = '←';
-      ul.appendChild(li);
+      if(ul.childNodes.length>5){
+        ul.removeChild(ul.childNodes[0]);
+        li.textContent = '←';
+        ul.appendChild(li);
+      }
+      else{
+        li.textContent = '←';
+        ul.appendChild(li);
+      }
     }
   }
 }
