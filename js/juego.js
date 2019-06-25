@@ -34,12 +34,12 @@ function guardarMovimiento(direccion){
 }
 
 /* Esta funcion va a mostrar los ultimos 5 movimientos realizados */
-function ultimos5Movimientos(){
+function mostrarUltimos5Movimientos(){
   var ul = document.getElementById('lista-ult5-mov');
   var li = document.createElement("li");
 
   for (var i = movimientos.length-6; i<movimientos.length; i++) {
-    if (movimientos[i] === codigosDireccion.ABAJO) {
+    if (movimientos[i] === codigosDireccion.ABAJO){
       if(ul.childNodes.length>5){
         ul.removeChild(ul.childNodes[0]);
         li.textContent = '↓';
@@ -50,7 +50,7 @@ function ultimos5Movimientos(){
         ul.appendChild(li);
       }
     }
-    else if (movimientos[i] === codigosDireccion.ARRIBA) {
+    else if (movimientos[i] === codigosDireccion.ARRIBA){
       if(ul.childNodes.length>5){
         ul.removeChild(ul.childNodes[0]);
         li.textContent = '↑';
@@ -61,7 +61,7 @@ function ultimos5Movimientos(){
         ul.appendChild(li);
       }
     }
-    else if (movimientos[i] === codigosDireccion.DERECHA) {
+    else if (movimientos[i] === codigosDireccion.DERECHA){
       if(ul.childNodes.length>5){
         ul.removeChild(ul.childNodes[0]);
         li.textContent = '→';
@@ -72,7 +72,7 @@ function ultimos5Movimientos(){
         ul.appendChild(li);
       }
     }
-    else if (movimientos[i] === codigosDireccion.IZQUIERDA) {
+    else if (movimientos[i] === codigosDireccion.IZQUIERDA){
       if(ul.childNodes.length>5){
         ul.removeChild(ul.childNodes[0]);
         li.textContent = '←';
@@ -86,28 +86,34 @@ function ultimos5Movimientos(){
   }
 }
 
-/*
------------------------------- POR HACER -----------------------------
-Por ejemplo: ¿cómo sería mostrar los últimos 5 movimientos? ¿O mostrar al final del juego todos los movimientos realizados?
-
-function mostrarInstruccionEnLista(instruccion, idLista) {
-  var ul = document.getElementById(idLista);
+/* Muestra en el cartel de ganador los movimientos realizados en la partida */
+function mostrarMovimientosRealizados() {
+  var ul = document.getElementById('movimientos-realizados');
   var li = document.createElement("li");
-  li.textContent = instruccion;
-  ul.appendChild(li);
+
+  for (var i=0; i<movimientos.length; i++) {
+    if(movimientos[i] === codigosDireccion.ABAJO){
+      li.textContent = '↓';
+      ul.appendChild(li);
+    console.log('↓ '+i+' ↓ '+li.textContent);
+    }
+    else if(movimientos[i] === codigosDireccion.ARRIBA){
+      li.textContent = '↑';
+      ul.appendChild(li);
+    console.log('↑ '+i+' ↑ '+li.textContent);
+    }
+    else if(movimientos[i] === codigosDireccion.DERECHA){
+      li.textContent = '→';
+      ul.appendChild(li);
+    console.log('→ '+i+' → '+li.textContent);
+    }
+    else if(movimientos[i] === codigosDireccion.IZQUIERDA){
+      li.textContent = '←';
+      ul.appendChild(li);
+    console.log('← '+i+' ← '+li.textContent);
+    }
+  };
 }
-
-*/
-
-
-
-
-
-
-
-
-
-
 
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
@@ -331,12 +337,13 @@ function capturarTeclas() {
       evento.which === codigosDireccion.IZQUIERDA) {
 
       moverEnDireccion(evento.which);
-      ultimos5Movimientos();
+      mostrarUltimos5Movimientos();
 
         var gano = chequearSiGano();
         if (gano) {
           setTimeout(function() {
               mostrarCartelGanador();
+              mostrarMovimientosRealizados();
               }, 500);
             }
             evento.preventDefault();
