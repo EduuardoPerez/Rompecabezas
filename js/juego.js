@@ -89,29 +89,29 @@ function mostrarUltimos5Movimientos(){
 /* Muestra en el cartel de ganador los movimientos realizados en la partida */
 function mostrarMovimientosRealizados() {
   var ul = document.getElementById('movimientos-realizados');
-  var li = document.createElement("li");
+  
 
   for (var i=0; i<movimientos.length; i++) {
+    var li = document.createElement("li");
+
     if(movimientos[i] === codigosDireccion.ABAJO){
       li.textContent = '↓';
-      ul.appendChild(li);
-    console.log('↓ '+i+' ↓ '+li.textContent);
+      console.log('↓ '+i+' ↓ '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.ARRIBA){
       li.textContent = '↑';
-      ul.appendChild(li);
-    console.log('↑ '+i+' ↑ '+li.textContent);
+      console.log('↑ '+i+' ↑ '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.DERECHA){
       li.textContent = '→';
-      ul.appendChild(li);
-    console.log('→ '+i+' → '+li.textContent);
+      console.log('→ '+i+' → '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.IZQUIERDA){
       li.textContent = '←';
-      ul.appendChild(li);
-    console.log('← '+i+' ← '+li.textContent);
+      console.log('← '+i+' ← '+li.textContent);
     }
+    
+    ul.appendChild(li)
   };
 }
 
