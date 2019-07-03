@@ -32,7 +32,7 @@ li::before {
 }
 .col-40 {
   background: #FFF;
-  padding: 30px;
+  padding: 5px 30px;
   color: #000;
 }
 
@@ -112,7 +112,7 @@ h2 {
   position: fixed;
   top: 5%;
   left: 35%;
-/*  display: none;*/
+  display: none;
 }
 
 #cartel p {
@@ -122,17 +122,17 @@ h2 {
   color: #E84A5F;
 }
 
-#ultimos5-mov li{
+#lista-ult5-mov li{
   display: inline-block;
   margin: 0 7%;
   animation: unset;
 }
 
-#ultimos5-mov li::before{
+#lista-ult5-mov li::before{
   content: unset;
 }
 
-#ultimos5-mov {
+#lista-ult5-mov {
   list-style: none;
 }
 
