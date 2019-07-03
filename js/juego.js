@@ -96,19 +96,15 @@ function mostrarMovimientosRealizados() {
 
     if(movimientos[i] === codigosDireccion.ABAJO){
       li.textContent = '↓';
-      console.log('↓ '+i+' ↓ '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.ARRIBA){
       li.textContent = '↑';
-      console.log('↑ '+i+' ↑ '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.DERECHA){
       li.textContent = '→';
-      console.log('→ '+i+' → '+li.textContent);
     }
     else if(movimientos[i] === codigosDireccion.IZQUIERDA){
       li.textContent = '←';
-      console.log('← '+i+' ← '+li.textContent);
     }
     
     ul.appendChild(li)
